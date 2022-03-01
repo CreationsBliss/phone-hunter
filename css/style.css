@@ -2,6 +2,21 @@
 body{
   font-family: 'Ubuntu', sans-serif;
 }
+
+/* START common style */
+h5,th{
+  color: #0b2239;
+}
+th{
+  font-weight: 500;
+}
+p, td{
+  color: #374957;
+  font-size: 18px;
+  font-weight: 300;
+}
+/* END common style */
+
 .header-content{
   max-width: 1024px;
   margin: auto;
@@ -76,4 +91,10 @@ body{
 }
 .details-btn:hover{
   background: #2bc48a;
+}
+
+
+/* START single phone section */
+#single-phone{
+  padding-top: 30px;
 }
