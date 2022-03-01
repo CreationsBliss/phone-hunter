@@ -47,3 +47,33 @@ body{
   cursor: pointer;
   border-radius: 5px;
 }
+.error-message-style{
+  color: red;
+  font-size: 16px;
+  font-weight: 300;
+  padding-top: 5px;
+}
+
+/* STARTS all phones section*/
+#all-phones{
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.details-btn{
+  background: #4ad295;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 30px;
+  min-width: 44px;
+  height: 44px;
+  font-size: 16px;
+  line-height: 44px;
+  /* box-shadow: inset 0 0 0 2px #cfd9e0; */
+}
+.details-btn:hover{
+  background: #2bc48a;
+}
