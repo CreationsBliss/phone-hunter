@@ -20,7 +20,7 @@ p, td{
 .header-content{
   max-width: 1024px;
   margin: auto;
-  padding: 80px 100px 40px;
+  padding: 80px 100px 0px;
 }
 .header-title{
   color: #0b2239;
@@ -71,7 +71,7 @@ p, td{
 
 /* STARTS all phones section*/
 #all-phones{
-  margin-top: 50px;
+  /* margin-top: 50px; */
   margin-bottom: 100px;
 }
 .details-btn{
@@ -93,8 +93,8 @@ p, td{
   background: #2bc48a;
 }
 
-
 /* START single phone section */
 #single-phone{
-  padding-top: 30px;
+  padding-top: 55px;
+  padding-bottom: 65px;
 }
