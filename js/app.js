@@ -11,7 +11,7 @@ const loadPhone = () =>{
   // search field error handling 
   if(searchFieldText == "" || searchFieldText >= 0 || searchFieldText <= 0 ){
     errorMessage.classList.add("error-message-style");
-    errorMessage.innerText = "Please enter your phone name";
+    errorMessage.innerText = "Please enter phone name";
     allPhones.innerHTML = "";
     singlePhone.innerHTML = "";
   }
@@ -71,7 +71,7 @@ const loadSinglePhone = (phoneId) =>{
 
 // Single phone details function
 const displaySinglePhone = (phoneDetails) =>{
-  console.log(phoneDetails);
+  // console.log(phoneDetails);
   const div = document.createElement("div");
   singlePhone.innerHTML = "";
   div.classList.add("card");
@@ -111,11 +111,7 @@ const displaySinglePhone = (phoneDetails) =>{
   displayOthersInfo(phoneDetails);
 }
 
-
 // Display sensor data
-  
-
-
 const displaySensorsInfo = (phoneDetails) =>{
   const allSensors = phoneDetails.data.mainFeatures.sensors;
 
@@ -126,10 +122,10 @@ const displaySensorsInfo = (phoneDetails) =>{
     div.style.margin = "auto";
     div.innerHTML = `
       <div class="card-body">
-          <table class="table table-striped table-hover table-bordered mx-auto"  style="max-width: 30rem;">
+          <table class="table table-striped table-hover table-bordered mx-auto" style="max-width: 30rem;">
             <tbody>
               <tr>
-                <th scope="row">Sensor</th>
+              <th scope="row">Sensor</th>
                 <td colspan="2"> ${singleSensor} </td>
               </tr>
             </tbody>
@@ -140,47 +136,71 @@ const displaySensorsInfo = (phoneDetails) =>{
    })
 }
 
-
 // display others 
 const displayOthersInfo = (phoneDetails) =>{
-   const div = document.createElement("div");
-   // singlePhone.innerHTML = "";
-   div.classList.add("card");
-   div.style.width = "25rem";
-   div.style.margin = "auto";
-   div.innerHTML =`
-       <div class="card-body">
-         <h5 class="card-title" style="margin: 10px 0px 25px;">Others</h5>
- 
-         <table class="table table-striped table-hover table-bordered mx-auto"  style="max-width: 30rem;">
-           <tbody>
-             <tr>
-               <th scope="row">Bluetooth</th>
-               <td>${phoneDetails.data.others.Bluetooth ? phoneDetails.data.others.Bluetooth : ''}</td>
-             </tr>
-             <tr>
-               <th scope="row">GPS</th>
-               <td>${phoneDetails.data.others.GPS ? phoneDetails.data.others.GPS : ''}</td>
-             </tr>
-             <tr>
-               <th scope="row">NFC</th>
-               <td colspan="2">${phoneDetails.data.others.NFC ? phoneDetails.data.others.NFC : ''}</td>
-             </tr>
-             <tr>
-               <th scope="row">Radio</th>
-               <td colspan="2">${phoneDetails.data.others.Radio ? phoneDetails.data.others.Radio : ''}</td>
-             </tr>
-             <tr>
-               <th scope="row">USB</th>
-               <td colspan="2">${phoneDetails.data.others.USB ? phoneDetails.data.others.USB : ''}</td>
-             </tr>
-             <tr>
-               <th scope="row">WLAN</th>
-               <td colspan="2">${phoneDetails.data.others.WLAN ? phoneDetails.data.others.WLAN : ''}</td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
-   `;
-   singlePhone.appendChild(div);
+  // console.log(phoneDetails);
+
+  if(phoneDetails.data.others == undefined){
+    const div = document.createElement("div");
+    // singlePhone.innerHTML = "";
+    div.classList.add("card");
+    div.style.width = "25rem";
+    div.style.margin = "auto";
+    div.innerHTML =`
+        <div class="card-body">
+          <h5 class="card-title" style="margin: 10px 0px 25px;">Others</h5>
+  
+          <table class="table table-striped table-hover table-bordered mx-auto"  style="max-width: 30rem;">
+            <tbody>
+              <tr>
+                <td>No data is found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    `;
+    singlePhone.appendChild(div);
+  }
+   else{
+    const div = document.createElement("div");
+    // singlePhone.innerHTML = "";
+    div.classList.add("card");
+    div.style.width = "25rem";
+    div.style.margin = "auto";
+    div.innerHTML =`
+        <div class="card-body">
+          <h5 class="card-title" style="margin: 10px 0px 25px;">Others</h5>
+  
+          <table class="table table-striped table-hover table-bordered mx-auto"  style="max-width: 30rem;">
+            <tbody>
+              <tr>
+                <th scope="row">Bluetooth</th>
+                <td>${phoneDetails.data.others.Bluetooth ? phoneDetails.data.others.Bluetooth : ''}</td>
+              </tr>
+              <tr>
+                <th scope="row">GPS</th>
+                <td>${phoneDetails.data.others.GPS ? phoneDetails.data.others.GPS : ''}</td>
+              </tr>
+              <tr>
+                <th scope="row">NFC</th>
+                <td colspan="2">${phoneDetails.data.others.NFC ? phoneDetails.data.others.NFC : ''}</td>
+              </tr>
+              <tr>
+                <th scope="row">Radio</th>
+                <td colspan="2">${phoneDetails.data.others.Radio ? phoneDetails.data.others.Radio : ''}</td>
+              </tr>
+              <tr>
+                <th scope="row">USB</th>
+                <td colspan="2">${phoneDetails.data.others.USB ? phoneDetails.data.others.USB : ''}</td>
+              </tr>
+              <tr>
+                <th scope="row">WLAN</th>
+                <td colspan="2">${phoneDetails.data.others.WLAN ? phoneDetails.data.others.WLAN : ''}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    `;
+    singlePhone.appendChild(div);
+   }
 }

@@ -15,6 +15,11 @@ p, td{
   font-size: 18px;
   font-weight: 300;
 }
+span{
+  color: #374957;
+  font-size: 18px;
+  font-weight: 300;
+}
 /* END common style */
 
 .header-content{
